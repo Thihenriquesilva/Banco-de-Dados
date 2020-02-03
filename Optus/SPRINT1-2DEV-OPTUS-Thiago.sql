@@ -50,7 +50,7 @@ SELECT * FROM Artistas;
 
 INSERT INTO TiposUsuarios (Nome)
 VALUES ('Administrador'),
-		('Comum');
+		('Comum');	
 
 INSERT INTO Estilos (NomeEstilo)
 VALUES ('Samba'),
@@ -153,3 +153,17 @@ SELECT IdAlbum, Nome, DataLancamento FROM Albuns
 ORDER BY DataLancamento ASC;
 
 
+
+
+-- INNER JOIN 
+
+SELECT * FROM  Artistas INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista  WHERE Albuns.IdArtista = 2;
+
+
+SELECT * FROM  Artistas INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdAlbum WHERE DataLancamento =  '2016/01/27';
+
+SELECT * FROM  Albuns INNER JOIN Artistas ON  Albuns.IdArtista = Artistas.IdArtista ORDER BY DataLancamento DESC;
+
+SELECT * FROM Artistas INNER JOIN  Albuns ON Artistas.IdArtista = Albuns.IdArtista INNER JOIN Estilos ON Estilos.IdEstilo = Albuns.IdEstilo  
+
+SELECT Artistas.Nome, NomeEstilo FROM Estilos INNER JOIN Albuns ON	Estilos.IdEstilo = Albuns.IdEstilo INNER JOIN Artistas ON  Albuns.IdArtista = Artistas.IdArtista
